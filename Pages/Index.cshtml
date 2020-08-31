@@ -1,0 +1,16 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+
+<div class="jumbotron" style=" height:100vh;background-size:cover;background-image:url('/Content/images/pic1.jpg')">
+    <h1 class="display-4" style="color:#ffffff; font-weight:bolder">Welcome to AKL Transport</h1>
+    <p style="color:#ffffff; font-weight:bolder" class="lead">Information about Buses, Drivers and Routes</p>
+    <hr class="my-4">
+    <p style="color:#ffffff; font-weight:bolder">Start Managing your Transport now!</p>
+    <p class="lead">
+        <a class="btn btn-primary ci-lg" asp-page="/RouteAllocations/Index" role="button">View Route Allocations</a>
+    </p>
+</div>

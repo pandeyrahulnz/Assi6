@@ -1,0 +1,48 @@
+﻿@page
+@model Bus_Route_Allocation_Core_Web_App.Pages.RouteAllocations.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 class="text-white bg-primary rounded">Route Allocations</h1>
+
+<p>
+    <a class="btn btn-outline-success"  asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.RouteAllocation[0].Bus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RouteAllocation[0].Driver)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RouteAllocation[0].Route)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.RouteAllocation) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Bus.BusNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Driver.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Route.Name)
+            </td>
+            <td>
+                <a class="btn btn-outline-success"  asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a class="btn btn-outline-success"  asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a class="btn btn-outline-success"  asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

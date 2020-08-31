@@ -1,0 +1,42 @@
+﻿@page
+@model Bus_Route_Allocation_Core_Web_App.Pages.Routes.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 class="text-white bg-primary rounded">Routes</h1>
+
+<p>
+    <a class="btn btn-outline-success" asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Route[0].Name)
+            </th>
+            <th>
+                RouteDistance (Km)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Route) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RouteDistance)
+            </td>
+            <td>
+                <a  class="btn btn-outline-success"  asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a class="btn btn-outline-success" asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a class="btn btn-outline-success" asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
